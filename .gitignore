@@ -4,7 +4,6 @@
 _NCrunch_GitHub.Unity
 *.user
 .DS_Store
-build/
 TestResult.xml
 *.stackdump
 *.lastcodeanalysissucceeded
@@ -34,7 +33,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-build/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
