@@ -37,7 +37,7 @@ namespace Unity.VersionControl.Git.UI
 
         public static void Initialize(IApplicationManager theManager)
         {
-#if !GIT_FOR_UNITY_DISABLE_LOCKING_UI
+#if !GIT_FOR_UNITY_DISABLE_LOCKING_FUNCTIONALITY
             EditorApplication.projectWindowItemOnGUI -= OnProjectWindowItemGUI;
             EditorApplication.projectWindowItemOnGUI += OnProjectWindowItemGUI;
 

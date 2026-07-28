@@ -28,7 +28,7 @@ namespace Unity.VersionControl.Git.UI
 
             // we need to do this to get the initial user information up front
             //UserMayHaveChanged();
-#if !GIT_FOR_UNITY_DISABLE_LOCKING_UI
+#if !GIT_FOR_UNITY_DISABLE_LOCKING_FUNCTIONALITY
             repository = environment.Repository;
             UnityShim.Editor_finishedDefaultHeaderGUI += InspectorHeaderFinished;
 
