@@ -28,7 +28,7 @@ namespace Unity.VersionControl.Git.UI
 
             // we need to do this to get the initial user information up front
             //UserMayHaveChanged();
-
+#if !GIT_FOR_UNITY_DISABLE_LOCKING_UI
             repository = environment.Repository;
             UnityShim.Editor_finishedDefaultHeaderGUI += InspectorHeaderFinished;
 
@@ -37,8 +37,8 @@ namespace Unity.VersionControl.Git.UI
                 repository.LocksChanged += RepositoryOnLocksChanged;
                 repository.CheckAndRaiseEventsIfCacheNewer(CacheType.GitLocks, lastLocksChangedEvent);
             }
+#endif
         }
-
         public static string[] OnWillSaveAssets(string[] paths)
         {
             return paths;
