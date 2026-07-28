@@ -446,7 +446,7 @@ namespace Unity.VersionControl.Git.UI
                     entry =>
                     {
                         var menu = new GenericMenu();
-                        if (entry.Owner.Name == currentUsername)
+                        if (entry.Owner.Name == Environment.User.Name)
                         {
                             menu.AddItem(unlockFileMenuContent, false, UnlockSelectedEntry);
                         }

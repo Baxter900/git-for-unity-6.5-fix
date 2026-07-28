@@ -78,14 +78,14 @@ namespace Unity.VersionControl.Git.UI
             }
         }
 
-        private static void UserMayHaveChanged()
+        private static void UserMayHaveChanged(CacheUpdateEvent cacheUpdateEvent)
         {
             //loggedInUser = platform.Keychain.Connections.Select(x => x.Username).FirstOrDefault();
         }
 
         private static bool IsLockedBySomeoneElse(GitLock? lck)
         {
-            return lck.HasValue && !lck.Value.Owner.Name.Equals(loggedInUser);
+            return lck.HasValue && !lck.Value.Owner.Name.Equals(environment.User.Name);
         }
 
         private static bool IsLockedBySomeoneElse(string assetPath)
