@@ -103,6 +103,7 @@ namespace Unity.VersionControl.Git.UI
 
         public static Texture2D GetFileStatusIcon(GitFileStatus status, bool isLocked)
         {
+#if !GIT_FOR_UNITY_DISABLE_LOCKING_UI
             if (isLocked)
             {
                 switch (status)
@@ -114,7 +115,7 @@ namespace Unity.VersionControl.Git.UI
                         return Utility.GetIcon("locked-by-person");
                 }
             }
-
+#endif
             switch (status)
             {
                 case GitFileStatus.Modified:

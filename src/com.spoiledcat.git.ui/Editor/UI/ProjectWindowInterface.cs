@@ -37,6 +37,7 @@ namespace Unity.VersionControl.Git.UI
 
         public static void Initialize(IApplicationManager theManager)
         {
+#if !GIT_FOR_UNITY_DISABLE_LOCKING_UI
             EditorApplication.projectWindowItemOnGUI -= OnProjectWindowItemGUI;
             EditorApplication.projectWindowItemOnGUI += OnProjectWindowItemGUI;
 
@@ -52,6 +53,7 @@ namespace Unity.VersionControl.Git.UI
                 Repository.CurrentRemoteChanged += RepositoryOnCurrentRemoteChanged;
                 ValidateCachedData();
             }
+#endif
         }
 
         public static Texture2D GetStatusIconForAssetGUID(string guid)
@@ -162,7 +164,7 @@ namespace Unity.VersionControl.Git.UI
 
             currentUsername = username;
         }
-
+#if !GIT_FOR_UNITY_DISABLE_LOCKING_UI
         [MenuItem(AssetsMenuRequestLock, true, 10000)]
         private static bool ContextMenu_CanLock()
         {
@@ -216,7 +218,7 @@ namespace Unity.VersionControl.Git.UI
         {
             RunLockUnlock(EntryPoint.ApplicationManager.TaskManager, IsObjectLocked, x => CreateUnlockObjectTask(x, true), Localization.ReleaseLockActionTitle, "Failed to unlock: no permissions");
         }
-
+#endif
         private static void RunLockUnlock(ITaskManager taskManager, Func<Object, bool> selector, Func<Object, ITask> creator, string title, string errorMessage)
         {
             isBusy = true;

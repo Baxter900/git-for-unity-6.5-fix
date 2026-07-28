@@ -560,7 +560,9 @@ namespace Unity.VersionControl.Git.UI
                     if (HasRepository)
                     {
                         changeTab = TabButton(SubTab.Changes, Localization.ChangesTitle, changeTab);
+#if !GIT_FOR_UNITY_DISABLE_LOCKING_UI
                         changeTab = TabButton(SubTab.Locks, Localization.LocksTitle, changeTab);
+#endif
                         changeTab = TabButton(SubTab.History, Localization.HistoryTitle, changeTab);
                         changeTab = TabButton(SubTab.Branches, Localization.BranchesTitle, changeTab);
                     }
